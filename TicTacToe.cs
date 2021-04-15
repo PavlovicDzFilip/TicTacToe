@@ -5,30 +5,16 @@ namespace TicTacToe
 {
     public class TicTacToe
     {
-        private readonly char[][] _table;
+        private readonly Table _table;
         private bool _isXNext;
         public bool IsGameOver { get; private set; }
 
         public TicTacToe()
         {
-            _table = GetTable();
+            _table = new Table();
             _isXNext = true;
         }
 
-        private static char[][] GetTable()
-        {
-            char[][] table = new char[3][];
-            for (int i = 0; i < 3; i++)
-            {
-                table[i] = new char[3];
-                for (int j = 0; j < 3; j++)
-                {
-                    table[i][j] = ' ';
-                }
-            }
-
-            return table;
-        }
 
         public void Input(int inputX, int inputY)
         {
@@ -39,9 +25,9 @@ namespace TicTacToe
 
             var nextSign = _isXNext ? 'x' : 'o';
             _isXNext = !_isXNext;
-            
+
             // assume input is always correct, and the field is not already taken
-            _table[inputX][inputY] = nextSign;
+            _table.Set(inputX, inputY, nextSign);
             CheckIsGameOver();
         }
 
@@ -55,15 +41,20 @@ namespace TicTacToe
 
             for (int i = 0; i < 3 && !gameOver; i++)
             {
-                if (_table[i].All(x => x == _table[i][0]) && _table[i][0] != ' ')
+                var rowIsSame = true;
+                for (int j = 0; j < 3; j++)
                 {
-                    gameOver = true;
+                    if (_table.Get(i, j) != _table.Get(i, 0) || _table.Get(i, 0) == ' ')
+                    {
+                        rowIsSame = false;
+                    }
                 }
+                gameOver = rowIsSame;
 
                 var columnIsSame = true;
                 for (int j = 1; j < 3; j++)
                 {
-                    if (_table[j][i] != _table[j - 1][i] || _table[0][i] == ' ')
+                    if (_table.Get(j, i) != _table.Get(j - 1, i) || _table.Get(0, i) == ' ')
                     {
                         columnIsSame = false;
                     }
@@ -71,17 +62,20 @@ namespace TicTacToe
 
                 gameOver = gameOver || columnIsSame;
 
-                if (_table[i][i] != _table[0][0] || _table[0][0] == ' ')
+                if (_table.Get(i, i) != _table.Get(0, 0) || _table.Get(0, 0) == ' ')
                 {
                     firstDiagonal = false;
                 }
 
-                if (_table[i][2 - i] != _table[0][2] || _table[0][2] == ' ')
+                if (_table.Get(i, 2 - i) != _table.Get(0, 2) || _table.Get(0, 2) == ' ')
                 {
                     secondDiagonal = false;
                 }
 
-                allFieldsTaken = allFieldsTaken && _table[i].All(x => x == ' ');
+                for (int j = 0; allFieldsTaken && j < 3; j++)
+                {
+                    allFieldsTaken = _table.Get(i, j) != ' ';
+                }
             }
 
             gameOver = gameOver || firstDiagonal || secondDiagonal || allFieldsTaken;
@@ -89,20 +83,7 @@ namespace TicTacToe
             IsGameOver = gameOver;
         }
 
-        public void Print()
-        {
-            // print the table
-            for (int i = 0; i < 3; i++)
-            {
-                for (int j = 0; j < 3; j++)
-                {
-                    Console.Write(_table[i][j]);
-                }
-
-                Console.WriteLine();
-            }
-
-            Console.WriteLine();
-        }
+        public void Print(ITicTacToePrinter printer) 
+            => printer.Print(_table);
     }
 }
