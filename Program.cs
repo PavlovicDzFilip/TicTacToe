@@ -15,7 +15,7 @@ namespace TicTacToe
                 var inputY = int.Parse(input.Split(' ')[1]);
 
                 game.Input(inputX, inputY);
-                game.Print();
+                game.Print(new ConsolePrinter());
             }
 
             Console.WriteLine("Game over!");
