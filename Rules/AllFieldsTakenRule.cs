@@ -8,7 +8,7 @@
             {
                 for (int j = 0; j < 3; j++)
                 {
-                    if (table.Get(i, j) == ' ')
+                    if (table.Get(i, j) == Sign.Empty)
                     {
                         return false;
                     }

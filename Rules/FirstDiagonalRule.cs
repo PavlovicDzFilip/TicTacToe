@@ -6,7 +6,7 @@
         {
             for (int i = 0; i < 3; i++)
             {
-                if (table.Get(i, i) != table.Get(0, 0) || table.Get(0, 0) == ' ')
+                if (table.Get(i, i) != table.Get(0, 0) || table.Get(0, 0) == Sign.Empty)
                 {
                     return false;
                 }

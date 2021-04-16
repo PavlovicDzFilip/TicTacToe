@@ -24,7 +24,7 @@ namespace TicTacToe
                 throw new InvalidOperationException("Game is already completed");
             }
 
-            var nextSign = _isXNext ? 'x' : 'o';
+            var nextSign = _isXNext ? Sign.X : Sign.O;
             _isXNext = !_isXNext;
 
             // assume input is always correct, and the field is not already taken
