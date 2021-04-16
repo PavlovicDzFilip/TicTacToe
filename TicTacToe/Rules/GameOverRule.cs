@@ -18,7 +18,7 @@ namespace TicTacToe.Rules
             };
         }
 
-        public bool IsGameOver(Table table)
-            => _rules.Any(rule => rule.IsGameOver(table));
+        public bool IsGameOver(Board board)
+            => _rules.Any(rule => rule.IsGameOver(board));
     }
 }

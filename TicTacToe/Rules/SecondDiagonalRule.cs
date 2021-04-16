@@ -2,11 +2,11 @@
 {
     public class SecondDiagonalRule : IGameOverRule
     {
-        public bool IsGameOver(Table table)
+        public bool IsGameOver(Board board)
         {
             for (int i = 0; i < 3; i++)
             {
-                if (table.Get(i, 2 - i) != table.Get(0, 2) || table.Get(0, 2) == Sign.Empty)
+                if (board.Get(i, 2 - i) != board.Get(0, 2) || board.Get(0, 2) == Sign.Empty)
                 {
                     return false;
                 }

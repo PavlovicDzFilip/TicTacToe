@@ -2,11 +2,11 @@
 {
     public class FirstDiagonalRule : IGameOverRule
     {
-        public bool IsGameOver(Table table)
+        public bool IsGameOver(Board board)
         {
             for (int i = 0; i < 3; i++)
             {
-                if (table.Get(i, i) != table.Get(0, 0) || table.Get(0, 0) == Sign.Empty)
+                if (board.Get(i, i) != board.Get(0, 0) || board.Get(0, 0) == Sign.Empty)
                 {
                     return false;
                 }

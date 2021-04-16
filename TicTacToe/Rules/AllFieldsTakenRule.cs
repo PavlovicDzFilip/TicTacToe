@@ -1,14 +1,14 @@
 ﻿namespace TicTacToe.Rules
 {
-    public class RowIsSameRule : IGameOverRule
+    public class AllFieldsTakenRule : IGameOverRule
     {
-        public bool IsGameOver(Table table)
+        public bool IsGameOver(Board board)
         {
             for (int i = 0; i < 3; i++)
             {
                 for (int j = 0; j < 3; j++)
                 {
-                    if (table.Get(i, j) != table.Get(i, 0) || table.Get(i, 0) == Sign.Empty)
+                    if (board.Get(i, j) == Sign.Empty)
                     {
                         return false;
                     }

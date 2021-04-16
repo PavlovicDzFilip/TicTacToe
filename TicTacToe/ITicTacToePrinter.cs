@@ -2,6 +2,6 @@
 {
     public interface ITicTacToePrinter
     {
-        void Print(Table table);
+        void Print(Board board);
     }
 }

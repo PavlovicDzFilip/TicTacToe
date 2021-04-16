@@ -2,6 +2,6 @@
 {
     public interface IGameOverRule
     {
-        bool IsGameOver(Table table);
+        bool IsGameOver(Board board);
     }
 }

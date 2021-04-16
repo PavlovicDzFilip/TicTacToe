@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31019.35
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicTacToe", "TicTacToe.csproj", "{33547841-6B29-4150-B89B-E383304F91DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicTacToe", "TicTacToe\TicTacToe.csproj", "{FBBEC8B7-D397-44D2-BB3D-2B297129625E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicTacToe.Tests", "TicTacToe.Tests\TicTacToe.Tests.csproj", "{03302A7C-B49F-4304-8000-EC2EA933F5A8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +13,19 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{33547841-6B29-4150-B89B-E383304F91DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{33547841-6B29-4150-B89B-E383304F91DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{33547841-6B29-4150-B89B-E383304F91DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{33547841-6B29-4150-B89B-E383304F91DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBBEC8B7-D397-44D2-BB3D-2B297129625E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBBEC8B7-D397-44D2-BB3D-2B297129625E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBBEC8B7-D397-44D2-BB3D-2B297129625E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBBEC8B7-D397-44D2-BB3D-2B297129625E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03302A7C-B49F-4304-8000-EC2EA933F5A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03302A7C-B49F-4304-8000-EC2EA933F5A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03302A7C-B49F-4304-8000-EC2EA933F5A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03302A7C-B49F-4304-8000-EC2EA933F5A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {44E8129C-E7B2-4B85-9E5D-F910C2121185}
+		SolutionGuid = {B184D833-C445-46B5-AC4F-F6666E0511B4}
 	EndGlobalSection
 EndGlobal

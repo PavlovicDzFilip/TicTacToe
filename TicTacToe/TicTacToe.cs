@@ -5,35 +5,36 @@ namespace TicTacToe
 {
     public class TicTacToe
     {
-        private readonly Table _table;
-        private bool _isXNext;
+        private readonly Board _board;
+        private Sign _nextSign;
         private readonly IGameOverRule _gameOverRule;
         public bool IsGameOver { get; private set; }
 
         public TicTacToe()
         {
-            _table = new Table();
+            _board = new Board();
             _gameOverRule = new GameOverRule();
-            _isXNext = true;
+            _nextSign = Sign.X;
         }
 
-        public void Input(int inputX, int inputY)
+        public void Input(Coord x, Coord y)
         {
             if (IsGameOver)
             {
                 throw new InvalidOperationException("Game is already completed");
             }
 
-            var nextSign = _isXNext ? Sign.X : Sign.O;
-            _isXNext = !_isXNext;
+            var nextSign = _nextSign;
+            ToggleNextSign();
 
-            // assume input is always correct, and the field is not already taken
-            _table.Set(inputX, inputY, nextSign);
-
-            IsGameOver = _gameOverRule.IsGameOver(_table);
+            _board.Set(x, y, nextSign);
+            IsGameOver = _gameOverRule.IsGameOver(_board);
         }
 
+        private void ToggleNextSign()
+            => _nextSign = _nextSign == Sign.X ? Sign.O : Sign.X;
+
         public void Print(ITicTacToePrinter printer)
-            => printer.Print(_table);
+            => printer.Print(_board);
     }
 }
