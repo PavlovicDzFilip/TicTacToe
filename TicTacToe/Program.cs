@@ -7,15 +7,13 @@ namespace TicTacToe
         static void Main(string[] args)
         {
             var game = new TicTacToe();
+            var input = new ConsoleInput();
+            var printer = new ConsolePrinter();
             while (!game.IsGameOver)
             {
-                Console.WriteLine("Waiting for input");
-                var input = Console.ReadLine();
-                var inputX = int.Parse(input.Split(' ')[0]);
-                var inputY = int.Parse(input.Split(' ')[1]);
-
-                game.Input(inputX, inputY);
-                game.Print(new ConsolePrinter());
+                var coords = input.GetInput();
+                game.Input(coords.X, coords.Y);
+                game.Print(printer);
             }
 
             Console.WriteLine("Game over!");

@@ -15,9 +15,6 @@ namespace TicTacToe
         public static implicit operator int(Coord coord)
             => coord._value;
 
-        public static implicit operator Coord(int coord)
-            => new Coord(coord);
-
         public int CompareTo(Coord other)
         {
             if (ReferenceEquals(this, other)) return 0;
