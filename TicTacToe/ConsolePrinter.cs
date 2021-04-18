@@ -10,7 +10,7 @@ namespace TicTacToe
             {
                 for (int j = 0; j < 3; j++)
                 {
-                    Console.Write(board.Get(i, j));
+                    Console.Write(board.GetSignAt(i, j));
                 }
 
                 Console.WriteLine();

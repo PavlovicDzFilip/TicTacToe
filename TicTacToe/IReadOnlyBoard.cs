@@ -1,7 +1,11 @@
-﻿namespace TicTacToe
+﻿using System.Collections.Generic;
+
+namespace TicTacToe
 {
     public interface IReadOnlyBoard
     {
-        Sign Get(Coord x, Coord y);
+        IReadOnlyCollection<Field> NonEmptyFields { get; }
+        Sign GetSignAt(Coord x, Coord y);
+
     }
 }

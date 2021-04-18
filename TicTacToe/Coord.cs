@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Diagnostics;
 using Ardalis.GuardClauses;
 
 namespace TicTacToe
 {
-    public class Coord : IComparable<Coord>
+    [DebuggerDisplay("{_value}")]
+    public class Coord : IComparable<Coord>, IEquatable<Coord>
     {
         private readonly int _value;
 
@@ -23,6 +25,26 @@ namespace TicTacToe
             if (ReferenceEquals(this, other)) return 0;
             if (ReferenceEquals(null, other)) return 1;
             return _value.CompareTo(other._value);
+        }
+
+        public bool Equals(Coord other)
+        {
+            if (ReferenceEquals(null, other)) return false;
+            if (ReferenceEquals(this, other)) return true;
+            return _value == other._value;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((Coord)obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return _value;
         }
     }
 }

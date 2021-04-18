@@ -34,7 +34,7 @@ namespace TicTacToe.Tests.Rules
             {
                 for (int j = 0; j < 3; j++)
                 {
-                    _board.Set(i, j, Sign.X);
+                    _board.SetSignAt(i, j, Sign.X);
                 }
             }
 

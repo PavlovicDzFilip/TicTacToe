@@ -1,39 +1,35 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace TicTacToe
 {
     public class Board : IReadOnlyBoard
     {
-        private readonly Sign[,] _board;
+        private readonly List<Field> _fields;
 
         public Board()
         {
-            _board = GetTable();
+            _fields = new List<Field>();
         }
 
-        private static Sign[,] GetTable()
+        public void SetSignAt(Coord x, Coord y, Sign sign)
         {
-            var table = new Sign[,]
-            {
-                    {Sign.Empty, Sign.Empty, Sign.Empty,},
-                    {Sign.Empty, Sign.Empty, Sign.Empty,},
-                    {Sign.Empty, Sign.Empty, Sign.Empty,},
-            };
-
-            return table;
-        }
-
-        public void Set(Coord x, Coord y, Sign sign)
-        {
-            if (_board[x, y] != Sign.Empty)
+            if (GetSignAt(x, y) != Sign.Empty)
             {
                 throw new ArgumentException("Coordinate is already taken");
             }
 
-            _board[x, y] = sign;
+            _fields.Add(new Field(x, y, sign));
         }
 
-        public Sign Get(Coord x, Coord y)
-            => _board[x, y];
+        public IReadOnlyCollection<Field> NonEmptyFields => _fields;
+
+        public Sign GetSignAt(Coord x, Coord y)
+            => GetFieldAt(x,y)?.Sign ?? Sign.Empty;
+
+        private Field GetFieldAt(Coord x, Coord y)
+            => _fields.FirstOrDefault(field => field.X.Equals(x) && field.Y.Equals(y));
+
     }
 }

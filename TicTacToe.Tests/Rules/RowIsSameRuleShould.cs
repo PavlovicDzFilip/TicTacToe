@@ -34,9 +34,9 @@ namespace TicTacToe.Tests.Rules
         {
             // Arrange
             var row = new Coord(rowIdx);
-            _board.Set(row, 0, Sign.X);
-            _board.Set(row, 1, Sign.X);
-            _board.Set(row, 2, Sign.X);
+            _board.SetSignAt(row, 0, Sign.X);
+            _board.SetSignAt(row, 1, Sign.X);
+            _board.SetSignAt(row, 2, Sign.X);
 
             // Act
             var isGameOver = _rule.IsGameOver(_board);

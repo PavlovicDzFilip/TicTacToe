@@ -30,9 +30,9 @@ namespace TicTacToe.Tests.Rules
         public void BeTrueIfDiagonalIsSame()
         {
             // Arrange
-            _board.Set(0, 0, Sign.X);
-            _board.Set(1, 1, Sign.X);
-            _board.Set(2, 2, Sign.X);
+            _board.SetSignAt(0, 0, Sign.X);
+            _board.SetSignAt(1, 1, Sign.X);
+            _board.SetSignAt(2, 2, Sign.X);
 
             // Act
             var isGameOver = _rule.IsGameOver(_board);
