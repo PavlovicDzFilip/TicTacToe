@@ -24,10 +24,8 @@ namespace TicTacToe
                 throw new InvalidOperationException("Game is already completed");
             }
 
-            var nextSign = _nextSign;
+            _board.Set(x, y, _nextSign);
             ToggleNextSign();
-
-            _board.Set(x, y, nextSign);
             IsGameOver = _gameOverRule.IsGameOver(_board);
         }
 

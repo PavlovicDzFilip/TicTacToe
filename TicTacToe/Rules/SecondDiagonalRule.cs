@@ -2,7 +2,7 @@
 {
     public class SecondDiagonalRule : IGameOverRule
     {
-        public bool IsGameOver(Board board)
+        public bool IsGameOver(IReadOnlyBoard board)
         {
             for (int i = 0; i < 3; i++)
             {

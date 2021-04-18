@@ -4,7 +4,7 @@ namespace TicTacToe
 {
     public class ConsolePrinter : ITicTacToePrinter
     {
-        public void Print(Board board)
+        public void Print(IReadOnlyBoard board)
         {
             for (int i = 0; i < 3; i++)
             {

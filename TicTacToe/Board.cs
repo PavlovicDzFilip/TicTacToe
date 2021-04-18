@@ -2,9 +2,10 @@
 
 namespace TicTacToe
 {
-    public class Board
+    public class Board : IReadOnlyBoard
     {
         private readonly Sign[,] _board;
+
         public Board()
         {
             _board = GetTable();
@@ -14,9 +15,9 @@ namespace TicTacToe
         {
             var table = new Sign[,]
             {
-                {Sign.Empty, Sign.Empty, Sign.Empty,},
-                {Sign.Empty, Sign.Empty, Sign.Empty,},
-                {Sign.Empty, Sign.Empty, Sign.Empty,},
+                    {Sign.Empty, Sign.Empty, Sign.Empty,},
+                    {Sign.Empty, Sign.Empty, Sign.Empty,},
+                    {Sign.Empty, Sign.Empty, Sign.Empty,},
             };
 
             return table;
